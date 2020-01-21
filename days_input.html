@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<!--
+        This HTML page shows the page for the walker's salary
+
+                                                                    -->
+<html>
+	<head>
+        <!-- link to our css file-->
+        <link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
+        <!-- link to a special font file provided by google -->
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Merienda+One">
+        <!-- link to our favicon image -->
+        <link rel="shortcut icon" type="image/png" href="/stylesheets/images/favicon.png">
+        <!-- page name - showing it on tab browser -->
+        <title> Salary Set </title>
+    </head>
+	<body class="wallpaper"> <!-- setting the class for the wallpaper image -->
+	<form action="/walker_finish" method="post">
+		<h1 class="register_text"> Almost Done... </h1> <!-- setting the class for the title -->
+		<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+		<table class="owner_table">
+            <tr>
+				<td class="p_text"> Thank You {{name}}! </td>
+            </tr>
+			<tr><td><br/></td></tr>
+			<tr>
+				<td class="p_text"> Now Let's Choose Your Salary </td>
+			</tr>
+			<tr>
+				<td>
+					<br/><br/>
+				</td>
+			</tr>
+				<tr>
+					<td class="p_text">
+						{%if day1 in walker_days%}
+						Salary for {{day1}} ($)
+						<div>
+							<input type="number" min="0" name=salary_1 value="0">
+						</div>
+						Max dogs for {{day1}}
+						<div>
+							<input type="number" min="0" name=max_dogs_1 value="0">
+						</div>
+						{%endif%}
+					</td>
+            	</tr>
+			<tr>
+				<td>
+					<br/>
+				</td>
+			</tr>
+			<tr>
+					<td class="p_text">
+						{%if day2 in walker_days%}
+						Salary for {{day2}} ($)
+						<div>
+							<input type="number" min="0" name=salary_2 value="0">
+						</div>
+						Max dogs for {{day2}}
+						<div>
+							<input type="number" min="0" name=max_dogs_2 value="0">
+						</div>
+						{%endif%}
+					</td>
+            	</tr>
+			<tr>
+				<td>
+					<br/>
+				</td>
+			</tr>
+			<tr>
+					<td class="p_text">
+						{%if day3 in walker_days%}
+						Salary for {{day3}} ($)
+						<div>
+							<input type="number" min="0" name=salary_3 value="0">
+						</div>
+						Max dogs for {{day3}}
+						<div>
+							<input type="number" min="0" name=max_dogs_3 value="0">
+						</div>
+						{%endif%}
+
+					</td>
+            	</tr>
+			<tr>
+				<td>
+					<br/>
+				</td>
+			</tr>
+			<tr>
+					<td class="p_text">
+						{%if day4 in walker_days%}
+						Salary for {{day4}} ($)
+						<div>
+							<input type="number" min="0" name=salary_4 value="0">
+						</div>
+						Max dogs for {{day4}}
+						<div>
+							<input type="number" min="0" name=max_dogs_4 value="0">
+						</div>
+						{%endif%}
+
+					</td>
+            	</tr>
+			<tr>
+				<td>
+					<br/>
+				</td>
+			</tr>
+			<tr>
+					<td class="p_text">
+						{%if day5 in walker_days%}
+						Salary for {{day5}} ($)
+						<div>
+							<input type="number" min="0" name=salary_5 value="0">
+						</div>
+						Max dogs for {{day5}}
+						<div>
+							<input type="number" min="0" name=max_dogs_5 value="0">
+						</div>
+						{%endif%}
+					</td>
+            	</tr>
+			<tr>
+				<td>
+					<br/>
+				</td>
+			</tr>
+			<tr>
+					<td class="p_text">
+						{%if day6 in walker_days%}
+						Salary for {{day6}} ($)
+						<div>
+							<input type="number" min="0" name=salary_6 value="0">
+						</div>
+						Max dogs for {{day6}}
+						<div>
+							<input type="number" min="0" name=max_dogs_6 value="0">
+						</div>
+						{%endif%}
+					</td>
+            	</tr>
+			<tr>
+				<td>
+					<br/>
+				</td>
+			</tr>
+			<tr>
+					<td class="p_text">
+						{%if day7 in walker_days%}
+						Salary for {{day7}} ($)
+						<div>
+							<input type="number" min="0" name = salary_7 value="0">
+						</div>
+						Max dogs for {{day7}}
+						<div>
+							<input type="number" min="0" name = max_dogs_7 value="0">
+						</div>
+						{%endif%}
+					</td>
+            	</tr>
+			<tr>
+				<td>
+					<br/><br/><br/>
+				</td>
+			</tr>
+			<tr>
+				<td class="p_text">
+						<input type="submit" value="Continue " class="submit_button">
+				</td>
+			</tr>
+			<tr><td><br/></td></tr>
+			<tr><td><br/></td></tr>
+		</table>
+	</form>
+	</body>
+</html>
+

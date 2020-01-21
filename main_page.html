@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--
+        This HTML page shows the main page
+
+                                                                    -->
+<html>
+       <head>
+		   <!-- link to our css file-->
+           <link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
+		   <!-- link to a special font file provided by google -->
+		   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Merienda+One">
+		   <!-- link to our favicon image -->
+		   <link rel="shortcut icon" type="image/png" href="/stylesheets/images/favicon.png">
+		   <!--our website name - showing it on tab browser -->
+		   <title> DoggyWalker </title>
+		   <!-- script for handling the smooth scroll on main page -->
+		   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		   <script>
+				$(function() {
+					setTimeout(function() {
+						var jumpPos = $('#choose').offset().top;
+						if($(document).scrollTop() <= jumpPos)
+						$('html, body').animate({
+							scrollTop: jumpPos
+							}, 800);
+						}, 2000);
+					});
+		   </script>
+       </head>
+       <body class="wallpaper"> <!-- setting the class for the wallpaper image -->
+			<div>
+				<!-- adding our logo image to main page and setting the relevant classes -->
+				<img class="logo center" src="/stylesheets/images/logo.png" alt="DoggyWalker Logo">
+			</div>
+
+			<br/><br/><br/><br/><br/>
+
+	   		<!-- adding the navigation bar to main page with its relevant classes -->
+			<div class="topnav" id="choose">
+				<a class="active" href="/">Home</a>
+				<a href="/walker_register">Dog Walker</a>
+				<a href="/owner_register">Dog Owner</a>
+				<a href="#about">Walks</a>
+				<a class="right" href="/logout">Logout</a>
+			</div>
+
+			<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+	   		<!-- adding the choose your way text to main page with its class -->
+			<div class="choose_text">Choose Your Way:</div>
+
+	   		<!-- adding the two menu images side by side with the overlay effect  -->
+			<div class="row_image">
+				<div class="column_image">
+					<div class="container">
+						<a href="/walker_register">
+						<img src="/stylesheets/images/walker.jpg" alt="Dog Walker"> <!-- first image for a walker -->
+						<div class="overlay">
+							<div class="text">Dog Walker</div>
+						</div>
+						</a>
+					</div>
+				</div>
+
+				<div class="column_image">
+					<div class="container">
+						<a href="/owner_register">
+						<img src="/stylesheets/images/owner.jpg" alt="Dog Owner"> <!-- second image for an owner -->
+						<div class="overlay">
+							<div class="text">Dog Owner</div>
+						</div>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<br/><br/>
+
+			<footer> <!-- adding a footer -->
+				<p class="footer_p">Created by: Group 2</p>
+			</footer>
+        </body>
+</html>
+
+<!--Contact information: <a href="mailto:someone@example.com" class="footer_p">someone@example.com</a>.-->
+<!--<div id="choose"> <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/> </div>-->

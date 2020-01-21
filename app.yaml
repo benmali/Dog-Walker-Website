@@ -1,0 +1,44 @@
+# -----------------------------------------------------------------------------
+# application - this is the name of the application
+# -----------------------------------------------------------------------------
+application: doggywalker
+# -----------------------------------------
+# the version of the application we create
+# -----------------------------------------
+version: 1
+# -----------------------------------------
+# programming language
+# -----------------------------------------
+runtime: python27
+# -----------------------------------------
+# python sub version
+# -----------------------------------------
+api_version: 1
+# ---------------------------------------------------------------------
+# threadsafe - to prevent collision between calls to the application
+#              from different clients
+# ---------------------------------------------------------------------
+threadsafe: true
+# ---------------------------------------------------------------------
+# handlers - define an application file for each URL we get
+# add a static directory /stylesheets
+# we will place all our css files inside it
+# ---------------------------------------------------------------------
+handlers:
+- url: /stylesheets
+  static_dir: stylesheets
+# ---------------------------------------------------------------------
+# url - excepting all the attribiutes
+# script - connector between the yaml and the py file
+# search for "app" in our main.py file
+# ---------------------------------------------------------------------
+- url: /.*
+  script: main.app
+# ---------------------------------------------------------------------
+# libraries in use
+# ---------------------------------------------------------------------
+libraries:
+- name: jinja2
+  version: latest
+- name: MySQLdb
+  version: latest

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--
+        This HTML page shows the page for a registered owner
+
+                                                                    -->
+<html>
+	<head>
+        <!-- link to our css file-->
+        <link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
+        <!-- link to a special font file provided by google -->
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Merienda+One">
+        <!-- link to our favicon image -->
+        <link rel="shortcut icon" type="image/png" href="/stylesheets/images/favicon.png">
+        <!-- page name - showing it on tab browser -->
+        <title> Dog Owner </title>
+    </head>
+	<body class="wallpaper"> <!-- setting the class for the wallpaper image -->
+    <div>
+		<iframe src="https://quiz.tryinteract.com/#/5e0fa003ef9f15001442b8a2?method=iframe" class="quiz_style">
+		</iframe>
+        <h1 class="logout_text"> Hello {{name}}! </h1>
+        <br/><br/>
+        <table class="finish_table">
+			<tr>
+				<td>
+					<form action="/dog_register">
+						<input type="submit" value="Register a Dog" class="submit_button">
+					</form>
+				</td>
+				<td></td>
+				<td>
+					<form action="/walk_register">
+						<input type="submit" value="Book a Walk" class="submit_button">
+					</form>
+				</td>
+				<td></td>
+				<td>
+					<form action="/">
+						<input type="submit" value="Home Page" class="submit_button">
+					</form>
+				</td>
+            </tr>
+        </table>
+	</div>
+    </body>
+</html>
+
+

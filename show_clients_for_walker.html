@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<!--
+        This HTML page shows the clients for a specific walker
+
+                                                                    -->
+<html>
+	<head>
+        <!-- link to our css file-->
+        <link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
+        <!-- link to a special font file provided by google -->
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Merienda+One">
+        <!-- link to our favicon image -->
+        <link rel="shortcut icon" type="image/png" href="/stylesheets/images/favicon.png">
+        <!-- page name - showing it on tab browser -->
+        <title> Salary Set </title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script>
+			(function($) {
+			$.fn.ddTableFilter = function(options) {
+			  options = $.extend(true, $.fn.ddTableFilter.defaultOptions, options);
+
+			  return this.each(function() {
+				if($(this).hasClass('ddtf-processed')) {
+				  refreshFilters(this);
+				  return;
+				}
+				var table = $(this);
+				var start = new Date();
+
+				$('th:visible', table).each(function(index) {
+				  if($(this).hasClass('skip-filter')) return;
+				  var selectbox = $('<select>');
+				  var values = [];
+				  var opts = [];
+				  selectbox.append('<option value="--all--">' + $(this).text() + '</option>');
+
+				  var col = $('tr:not(.skip-filter) td:nth-child(' + (index + 1) + ')', table).each(function() {
+					var cellVal = options.valueCallback.apply(this);
+					if(cellVal.length == 0) {
+					  cellVal = '--empty--';
+					}
+					$(this).attr('ddtf-value', cellVal);
+
+					if($.inArray(cellVal, values) === -1) {
+					  var cellText = options.textCallback.apply(this);
+					  if(cellText.length == 0) {cellText = options.emptyText;}
+					  values.push(cellVal);
+					  opts.push({val:cellVal, text:cellText});
+					}
+				  });
+				  if(opts.length < options.minOptions){
+					return;
+				  }
+				  if(options.sortOpt) {
+					opts.sort(options.sortOptCallback);
+				  }
+				  $.each(opts, function() {
+					$(selectbox).append('<option value="' + this.val + '">' + this.text + '</option>')
+				  });
+
+				  $(this).wrapInner('<div style="display:none">');
+				  $(this).append(selectbox);
+
+				  selectbox.bind('change', {column:col}, function(event) {
+					var changeStart = new Date();
+					var value = $(this).val();
+
+					event.data.column.each(function() {
+					  if($(this).attr('ddtf-value') === value || value == '--all--') {
+						$(this).removeClass('ddtf-filtered');
+					  }
+					  else {
+						$(this).addClass('ddtf-filtered');
+					  }
+					});
+					var changeStop = new Date();
+					if(options.debug) {
+					  console.log('Search: ' + (changeStop.getTime() - changeStart.getTime()) + 'ms');
+					}
+					refreshFilters(table);
+
+				  });
+				  table.addClass('ddtf-processed');
+				  if($.isFunction(options.afterBuild)) {
+					options.afterBuild.apply(table);
+				  }
+				});
+
+				function refreshFilters(table) {
+				  var refreshStart = new Date();
+				  $('tr', table).each(function() {
+					var row = $(this);
+					if($('td.ddtf-filtered', row).length > 0) {
+					  options.transition.hide.apply(row, options.transition.options);
+					}
+					else {
+					  options.transition.show.apply(row, options.transition.options);
+					}
+				  });
+
+				  if($.isFunction(options.afterFilter)) {
+					options.afterFilter.apply(table);
+				  }
+
+				  if(options.debug) {
+					var refreshEnd = new Date();
+					console.log('Refresh: ' + (refreshEnd.getTime() - refreshStart.getTime()) + 'ms');
+				  }
+				}
+
+				if(options.debug) {
+				  var stop = new Date();
+				  console.log('Build: ' + (stop.getTime() - start.getTime()) + 'ms');
+				}
+			  });
+			};
+
+			$.fn.ddTableFilter.defaultOptions = {
+			  valueCallback:function() {
+				return encodeURIComponent($.trim($(this).text()));
+			  },
+			  textCallback:function() {
+				return $.trim($(this).text());
+			  },
+			  sortOptCallback: function(a, b) {
+				return a.text.toLowerCase() > b.text.toLowerCase();
+			  },
+			  afterFilter: null,
+			  afterBuild: null,
+			  transition: {
+				hide:$.fn.hide,
+				show:$.fn.show,
+				options: []
+			  },
+			  emptyText:'--Empty--',
+			  sortOpt:true,
+			  debug:false,
+			  minOptions:2
+			}
+
+			})(jQuery);
+		</script>
+	</head>
+	<body class="wallpaper"> <!-- setting the class for the wallpaper image -->
+	{%if clients !=[]%}
+	<h1 class="register_text"> Your Clients </h1>
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	<div class = "container">
+		<table id="mytable" class="walk_table">
+			<thead>
+				<tr>
+					<th> Owner's Email </th>
+					<th> Owner's Name </th>
+					<th> Owner's City </th>
+					<th> Owner's Age </th>
+				</tr>
+			</thead>
+		{%for client in clients%}
+		<tr>
+			{%for client1 in client%}
+						<td class="p_text walk_match"> {{client1}}</td>
+			{%endfor%}
+		</tr>
+		{%endfor%}
+		</table>
+		<br/><br/><br/>
+		<table class="owner_table">
+			<tr>
+				<td>
+					<form action="/">
+						<input type="submit" value="Home Page" class="submit_button">
+					</form>
+				</td>
+			</tr>
+			<tr><td><br/></td></tr>
+			<tr><td><br/></td></tr>
+		</table>
+	{%else%}
+		<h1 class="register_text"> You don't have any clients yet :( </h1>
+		<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+		<table class="walker_table">
+			<tr>
+				<td>
+					<form action="/">
+						<input type="submit" value="Back to Home Page" class="submit_button">
+					</form>
+				</td>
+			</tr>
+		</table>
+	</div>
+	{%endif%}
+	<script>
+		$("#mytable").ddTableFilter();
+	</script>
+	</body>
+</html>
+

@@ -1,0 +1,230 @@
+/* ------------------------------------------------------------------------- */
+/* DoggyWalker */
+/* This CSS file is used for handling the display of our whole site */
+/* ------------------------------------------------------------------------- */
+
+
+.wallpaper{ /*  class for our site's wallpaper  */
+    background-image: url('/stylesheets/images/wallpaper.jpg')
+}
+
+
+.logo { /*  class for the logo image  */
+    margin-top: 50px;
+    width: 600px;
+    height: 600px
+}
+
+
+.row_image { /*  class for handling two images side by side - row component  */
+  display: flex;
+}
+
+
+.column_image { /*  class for handling two images side by side - column component  */
+  flex: 50%;
+  padding: 2px;
+}
+
+
+.center { /*  setting a class which centers whatever we want */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+table.walker_table { /*  setting a class which styles walker's table */
+    width: 68%;
+    margin-left: 300px;
+}
+
+table.owner_table { /*  setting a class which styles owner's table */
+    width: 38%;
+    margin-left: 300px;
+}
+
+table.walk_table { /*  setting a class which styles the walk match table */
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px outset grey;
+    padding: 1px
+}
+
+td.walk_match { /*  setting a class which styles the walk match table's td */
+    border: inset grey;
+    margin: 3;
+    text-align: center;
+}
+
+
+td.text_center{ /*  setting a class which center the text inside table cells */
+    text-align: center;
+}
+
+
+tr.walk_match_rows:hover { /*  class for changing the color of matches on hover  */
+    background-color: #ffd06b;
+    color: #CC0000;
+}
+
+.container { /*  part of the classes for the overlay effect on both home page images  */
+  position: relative;
+  width: 100%;
+}
+
+
+.overlay { /*  class for setting the overlay effect   */
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s ease;
+  background-color: #ffd06b;
+}
+
+
+.container:hover .overlay { /*  class for handling mouse hovers over home page images */
+  opacity: 0.9;
+}
+
+
+.text { /*  main class for text usages in our site   */
+  font: 400 45px/1.2 'Merienda One', Helvetica, sans-serif;
+  color: rgba(0,0,0,0.7);
+  text-shadow: 3px 3px 3px black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+
+.footer_p{ /*  class for the footer  */
+    color: white
+}
+
+
+.choose_text { /*  class for styling the choose your way text on home page  */
+  font: 400 45px/1.2 'Merienda One', Helvetica, sans-serif;
+  color: rgba(255,227,76,0.7);
+  text-shadow: 3px 3px 3px black;
+  position: absolute;
+  top: 122%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+
+.register_text { /*  class for styling the registration text  */
+  font: 400 35px/1.2 'Merienda One', Helvetica, sans-serif;
+  color: rgba(255,227,76,0.7);
+  text-shadow: 3px 3px 3px black;
+  position: absolute;
+  top: 8%;
+  left: 29%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.p_text { /*  class for styling the paragraph text  */
+  font: 400 20px/1.5 'Merienda One', Helvetica, sans-serif;
+  color: rgba(255,248,211,0.7);
+  text-shadow: 3px 3px 3px black;
+}
+
+.match_table_head { /*  class for styling the headers in match table   */
+  font: 400 20px/1.5 'Merienda One', Helvetica, sans-serif;
+  color: rgba(255,227,76,0.7);
+  text-shadow: 3px 3px 3px black;
+}
+
+
+.logout_text { /*  class for styling the text on logout page  */
+  font: 300 40px/1.2 'Merienda One', Helvetica, sans-serif;
+  color: rgba(255,227,76,0.7);
+  text-shadow: 3px 3px 3px black;
+  position: absolute;
+  top: 30%;
+  left: 65%;
+  transform: translate(-60%, -30%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+
+.topnav { /* class for adding a background color to the navigation bar */
+  background-color: #181345;
+  overflow: hidden;
+}
+
+
+
+.topnav a { /* class for styling the links inside the navigation bar */
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 10px 14px;
+  text-decoration: none;
+  font-family: 'Merienda One';
+  font-size: 17px;
+}
+
+
+.topnav a:hover { /* class for changing the color of links on hover */
+  background-color: #ffd06b;
+  color: black;
+}
+
+
+.topnav a.active { /* class for adding a color to the active/current link */
+  background-color: #361C66;
+  color: white;
+}
+
+.topnav a.right { /* class for right align inside the navigation bar */
+    float: right;
+}
+
+
+label { /* class for styling the label of the checkboxes */
+  font: 400 13px/1.7 'Merienda One', Helvetica, sans-serif;
+  color: rgba(255,248,211,0.7);
+  text-shadow: 3px 3px 3px black;
+}
+
+
+input.submit_button { /* class for styling the submit buttons */
+	background: #181345;
+	color: #ffd06b;
+	font: 400 16px/1.5 'Merienda One', Helvetica, sans-serif;
+	border-style: outset;
+    border-color: #ffd06b;
+    height: 45px;
+    width: 200px;
+
+}
+
+table.finish_table{ /*  setting a class which styles a table */
+    width: 38%;
+    margin-left: 300px;
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.quiz_style{ /* class for styling the quiz */
+   margin-top: 50px;
+   margin-left: 25px;
+   width: 600px;
+   height: 600px
+}
+
