@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<!--
+        This HTML page shows the page for a dog register
+
+                                                                    -->
+<html>
+	<head>
+        <!-- link to our css file-->
+        <link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
+        <!-- link to a special font file provided by google -->
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Merienda+One">
+        <!-- link to our favicon image -->
+        <link rel="shortcut icon" type="image/png" href="/stylesheets/images/favicon.png">
+        <!-- page name - showing it on tab browser -->
+        <title> Dog Register </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+	<body class="wallpaper">
+		<h1 class="register_text"> Dog Registration </h1>< <!-- setting the class for the title -->
+
+		<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+		<form id="sectionForm" action="/home_or_another_dog" method="post"> <!-- creating the registration form -->
+            <table class="owner_table">
+                <tr>
+                    <td class="p_text"> {{id}}</td>
+                </tr>
+                <tr>
+                    <td><br/></td>
+                </tr>
+                <tr>
+                    <td class="p_text"> Dog Details </td>
+                    <td class="p_text"> All Fields Are Required </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="p_text"> Name </td>
+                    <td>
+						<input type="text" name="name" required>
+					</td>
+                </tr>
+                <tr>
+                    <td class="p_text"> Dog's ID </td>
+                    <td>
+						 <input type="number" name="id" placeholder="{{id}}" required>
+					</td>
+
+                </tr>
+                <tr>
+                    <td class="p_text"> Age </td>
+                    <td>
+						<input type="number" name="age" required>
+					</td>
+                </tr>
+                <tr>
+                    <td class="p_text"> Gender </td>
+                    <td>
+                      <input id="checkbox1" type="checkbox" name= "gender" value="Male">
+                                                                            <label for="checkbox1">Male</label>
+                      <input id="checkbox2" type="checkbox" name= "gender" value="Female">
+                                                                            <label for="checkbox2">Female</label>
+                      <input id="checkbox3" type="checkbox" name= "gender" value="Other">
+                                                                            <label for="checkbox3">Other</label>
+                    </td>
+
+                </tr>
+                 <tr>
+                    <td class="p_text"> Choose Your Dog's Breed </td>
+                    <td>
+						<input list="cities" name="breed" required>
+                        <datalist id="cities">
+                            <option value="Labrador">
+                            <option value="Bulldog">
+                            <option value="Pincer">
+                            <option value="Corgi">
+                            <option value="Pug">
+                            <option value="Pomeranian">
+                            <option value ="Pekingese">
+                        </datalist>
+					</td>
+                </tr>
+                <tr>
+                    <td>
+                        <br/><br/><br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+						<input type="submit" value="Register Your Dog" class="submit_button">
+					</td>
+                </tr>
+            </table>
+        </form>
+    <script>
+        (function() {
+            const form = document.querySelector('#sectionForm');
+            const checkboxes = form.querySelectorAll('input[type=checkbox]');
+            const checkboxLength = checkboxes.length;
+            const firstCheckbox = checkboxLength > 0 ? checkboxes[0] : null;
+
+            function init() {
+                if (firstCheckbox) {
+                    for (let i = 0; i < checkboxLength; i++) {
+                        checkboxes[i].addEventListener('change', checkValidity);
+                    }
+
+                    checkValidity();
+                }
+            }
+
+            function isChecked() {
+                for (let i = 0; i < checkboxLength; i++) {
+                    if (checkboxes[i].checked) return true;
+                }
+
+                return false;
+            }
+
+            function checkValidity() {
+                const errorMessage = !isChecked() ? 'At least one checkbox must be selected' : '';
+                firstCheckbox.setCustomValidity(errorMessage);
+            }
+
+            init();
+        })();
+    </script>
+	</body>
+</html>
+

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!--
+        This HTML page shows the page for an owner register
+
+                                                                    -->
+<html>
+	<head>
+        <!-- link to our css file-->
+        <link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
+        <!-- link to a special font file provided by google -->
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Merienda+One">
+        <!-- link to our favicon image -->
+        <link rel="shortcut icon" type="image/png" href="/stylesheets/images/favicon.png">
+        <!-- page name - showing it on tab browser -->
+        <title> Owner Register </title>
+    </head>
+	<body class="wallpaper"> <!-- setting the class for the wallpaper image -->
+		<h1 class="register_text"> Account Registration </h1> <!-- setting the class for the title -->
+		<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+		<form action="/finish_owner_register" method="post"> <!-- creating the registration form -->
+            <table class="owner_table">
+                <tr>
+                    <td class="p_text"> Personal Details </td>
+                    <td class="p_text"> All Fields Are Required </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="p_text"> Email </td>
+                    <td>
+						<input type="email" name="email" value= {{user_email}} disabled>
+					</td>
+                </tr>
+                <tr>
+                    <td class="p_text"> Name </td>
+                    <td>
+						<input type="text" name="name" required>
+					</td>
+                </tr>
+                <tr>
+                    <td class="p_text"> Phone Number </td>
+                    <td>
+                        <input type="tel" name="phone" pattern="[0-9]{3}[0-9]{7}" placeholder="10-digit number"
+                               required maxlength="10">
+					</td>
+                </tr>
+                <tr>
+                    <td class="p_text"> Birth Date </td>
+                    <td>
+						<input type="date" name="bdate"  required>
+					</td>
+                </tr>
+                 <tr>
+                    <td class="p_text"> City </td>
+                    <td>
+						<input list="cities" name="city" required>
+                        <datalist id="cities">
+                            <option value="Beer Sheva">
+                            <option value="Eilat">
+                            <option value="Haifa">
+                            <option value="Herzliya">
+                            <option value="Jerusalem">
+                            <option value="Kfar Saba">
+                            <option value="Nahariya">
+                            <option value="Netanya">
+                            <option value="Raanana">
+                            <option value="Ramat Hasharon">
+                            <option value="Tel-Aviv">
+                        </datalist>
+					</td>
+                </tr>
+                <tr>
+                    <td>
+                        <br/><br/><br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+						<input type="submit" value="Continue" class="submit_button">
+					</td>
+                </tr>
+            </table>
+        </form>
+	</body>
+</html>
+

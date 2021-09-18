@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!--
+        This HTML page shows the page with the relevant walkers for the specific owner
+
+                                                                    -->
+<html>
+	<head>
+        <!-- link to our css file-->
+        <link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
+        <!-- link to a special font file provided by google -->
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Merienda+One">
+        <!-- link to our favicon image -->
+        <link rel="shortcut icon" type="image/png" href="/stylesheets/images/favicon.png">
+        <!-- page name - showing it on tab browser -->
+        <title> Optional Walkers </title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script>
+
+		</script>
+    </head>
+	<body class="wallpaper"> <!-- setting the class for the wallpaper image -->
+	<h1 class="register_text"> Optional Walkers </h1>
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	{% if week_days !=[]%}
+	<form action="/walk_details" method="post"> <!-- creating the registration form -->
+		<table class="walk_table">
+		<tr>
+			<td class="match_table_head walk_match"> Choose </td>
+			<td class="match_table_head walk_match"> Walker's Name </td>
+			<td class="match_table_head walk_match"> Walker's Phone </td>
+			<td class="match_table_head walk_match"> Walker's Email </td>
+			<td class="match_table_head walk_match"> Price </td>
+			<td class="match_table_head walk_match"> Walk Date </td>
+		</tr>
+		{%for walker in week_days%} <!--walker is a tuple week days is a list of tuples -->
+		<tr class="walk_match_rows">
+			<td class="p_text walk_match">
+				<input id="checkbox" type="checkbox" name={{week_days.index(walker)}}
+					   									value = {{week_days.index(walker)}}>
+														<label for="checkbox">{{week_days.index(walker)+1}}</label>
+			</td>
+			{%for value in walker%}
+				<td class="p_text walk_match"> {{value}}</td>
+			{%endfor%}
+		</tr>
+		{%endfor%}
+		</table>
+		<br/><br/><br/>
+		<table class="owner_table">
+			<tr>
+				<td>
+					<input type="submit" value="Continue" class="submit_button">
+				</td>
+			</tr>
+			<tr><td><br/></td></tr>
+			<tr><td><br/></td></tr>
+		</table>
+	</form>
+	{%else%}
+		<h1 class="register_text"> You don't have any matching walkers :( </h1>
+		<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+		<table class="walker_table">
+			<tr>
+				<td>
+					<form action="/">
+						<input type="submit" value="Back to Home Page" class="submit_button">
+					</form>
+				</td>
+			</tr>
+		</table>
+	{%endif%}
+	</body>
+</html>
+
